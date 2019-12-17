@@ -1,0 +1,27 @@
+CREATE TABLE usuarios
+(
+  tipo_documento varchar(35) NOT NULL,
+  documento integer NOT NULL,
+  primer_nombre varchar(15) NOT NULL,
+  primer_apellido varchar(15) NOT NULL,
+  fecha_nacimiento date NOT NULL,
+  telefono_o_celular varchar(25) NOT NULL,
+  localidad varchar(20) NOT NULL,
+  barrio varchar(15) NOT NULL,
+  email varchar(50) NOT NULL,
+  contrasena varchar(250) NOT NULL,
+  PRIMARY KEY (documento)
+);
+
+CREATE TABLE articulos
+(
+  serial_bicicleta varchar(15) NOT NULL,
+  documento_propietario integer NOT NULL,
+  marca_bicicleta varchar(15) NOT NULL,
+  tipo_bicicleta varchar(15) NOT NULL,
+  color_bicicleta varchar(15) NOT NULL,
+  foto_articulo varchar(35),
+  PRIMARY KEY (serial_bicicleta),
+  FOREIGN KEY (documento_propietario)
+  REFERENCES usuarios (documento)
+);
